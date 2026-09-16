@@ -1,38 +1,51 @@
 import { Card, cardBodyTextClasses, cardTitleClasses } from "@whatmatters/wmds";
-import { capabilities } from "../content";
-import { PageSection } from "../placeholders/PageSection";
-import { Reveal } from "../placeholders/Reveal";
+import { applications, heat } from "../content";
+import { MediaFrame } from "../placeholders/MediaFrame";
+import { Surface } from "../placeholders/Surface";
 
 export function Capabilities() {
+  const lead = applications[0];
+  const next = applications[1];
+
   return (
-    <PageSection id="capabilities">
-      <Reveal className="col-span-full lg:col-span-6">
-        <p className="type-heading-6 text-muted">Capabilities</p>
-        <h2 className="type-display-2 mt-4 text-fg">Four offtakes, one campus.</h2>
-      </Reveal>
-      <Reveal className="col-span-full lg:col-span-6 lg:self-end" delay={0.06}>
-        <p className="type-body text-muted">
-          The plant is sized to the plot. Customers contract a stream — or stack them — without inheriting four
-          separate projects.
-        </p>
-      </Reveal>
-      {capabilities.map((item, index) => (
-        <Reveal key={item.title} className="col-span-full md:col-span-4 lg:col-span-3" delay={index * 0.05}>
-          <Card className="h-full">
+    <Surface id="capabilities" tone="ink">
+      <div className="grid-page py-[calc(var(--leading-base)*8)]">
+        <div className="band">
+          <p className="type-code col-span-full text-muted">0 °C — 1 200 °C</p>
+          <div
+            className="col-span-full mt-4 h-2 overflow-hidden bg-muted-surface"
+            role="img"
+            aria-label="Placeholder temperature range, campus marked near 900 °C"
+          >
+            <div className="h-full w-[75%] bg-info" />
+          </div>
+          <p className="type-heading-6 col-span-full mt-12 text-muted lg:col-span-4">{heat.eyebrow}</p>
+          <p className="type-heading-2 col-span-full mt-12 text-fg lg:col-span-7 lg:col-start-6">{heat.body}</p>
+        </div>
+        <div className="band mt-[calc(var(--leading-base)*6)] items-stretch">
+          <div className="col-span-full lg:col-span-4">
+            <MediaFrame label="Placeholder oil and gas frame" caption="03 / Oil & gas" wash="slate" ratio="4 / 5" />
+          </div>
+          <Card className="col-span-full h-full lg:col-span-4">
             <Card.Header
               start={
                 <div>
-                  <p className="type-code text-muted">{String(index + 1).padStart(2, "0")}</p>
-                  <h3 className={`${cardTitleClasses} mt-3`}>{item.title}</h3>
+                  <p className="type-code text-muted">{lead.sector}</p>
+                  <h3 className={`${cardTitleClasses} mt-3`}>{lead.title}</h3>
                 </div>
               }
             />
             <Card.Body>
-              <p className={cardBodyTextClasses}>{item.body}</p>
+              <p className={cardBodyTextClasses}>{lead.body}</p>
             </Card.Body>
           </Card>
-        </Reveal>
-      ))}
-    </PageSection>
+          <div className="col-span-full lg:col-span-4">
+            <MediaFrame label="Placeholder chemicals frame" caption="04 / Chemicals" wash="tide" ratio="4 / 5" />
+            <p className="type-heading-6 mt-4 text-muted">{next.sector}</p>
+            <p className="type-heading-4 mt-2 text-fg">{next.title}</p>
+          </div>
+        </div>
+      </div>
+    </Surface>
   );
 }

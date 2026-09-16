@@ -2,7 +2,7 @@
 
 WhatMatters capability lab: a long-scroll marketing page built with **WMDS** + **Motion**.
 
-It studies the *experience language* of premium industrial sites (long narrative, architectural media rhythm, restrained motion, section storytelling). It is **not** a pixel clone of [ZettaJoule](https://zetta-joule.com/) or any Zypsy/Webflow build, and it does **not** use their brand, copy, or IP.
+It studies the *experience language* of premium industrial sites (long narrative, architectural media rhythm, restrained motion, section storytelling). Layout and section order follow [ZettaJoule](https://zetta-joule.com/) 1:1 with **placeholder media** and **Ashlar copy** set in WMDS type — not their brand, photography, or IP.
 
 The demo product is **Ashlar** — a fictional industrial clean-energy campus.
 
@@ -44,7 +44,7 @@ Page layout uses WMDS **`grid-page` + `band`**. Components are used via props (`
 
 **Real (WMDS / stack)**
 
-- Theme, type tokens (`type-*`), grid spine, dark theme (`data-theme="dark"`)
+- Theme, type tokens (`type-*`), grid spine, light paper (default) with `data-theme="dark"` on ink bands
 - `Button`, `Badge`, `Card`, `Stat`, `Avatar`, `TextLink`, `GridOverlay`
 - `motionTransitionProp` for duration/easing
 - Geist variable fonts
@@ -76,7 +76,11 @@ If Design wants these in WMDS, promote the local placeholders — do not keep gr
 
 ## Motion
 
-Primary: `ScrollFlipStage` scrubs an inset film to the viewport, holds full-bleed with a center line + name/definition overlays, then releases as a 100svh in-flow block. Secondary: `ReactorScrub` pins a plant graphic and drives part transforms from separated → assembled; capability labels step with progress.
+Header: full-bleed hero with parallax between the placeholder vessel and the display title.
+
+Primary: `ScrollFlipStage` starts as a **rounded inset in the white mission band**, scrubs to the viewport, holds full-bleed with a center line + name/definition overlays, then releases as a 100svh in-flow block onto the paper technology section. Secondary: `ReactorScrub` pins a plant graphic on the ice systems band; labels step with progress.
+
+Surfaces stay close to the reference: paper (white), ice (muted), ink (dark theme bands).
 
 Both honor `prefers-reduced-motion` by jumping to end states (no morph, no scrub track). CSS wash animation is disabled under the same query.
 

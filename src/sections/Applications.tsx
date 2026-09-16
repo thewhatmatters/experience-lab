@@ -1,37 +1,42 @@
+import { Card, cardBodyTextClasses, cardTitleClasses } from "@whatmatters/wmds";
 import { applications } from "../content";
 import { MediaFrame, type MediaWash } from "../placeholders/MediaFrame";
-import { PageSection } from "../placeholders/PageSection";
-import { Reveal } from "../placeholders/Reveal";
+import { Surface } from "../placeholders/Surface";
 
-const washes: MediaWash[] = ["tide", "field", "ember", "slate", "tide", "field"];
+const washes: MediaWash[] = ["ember", "field", "slate", "tide"];
 
 export function Applications() {
+  const rest = applications.slice(2);
+
   return (
-    <PageSection id="applications">
-      <Reveal className="col-span-full lg:col-span-8">
-        <p className="type-heading-6 text-muted">Sectors</p>
-        <h2 className="type-display-2 mt-4 text-fg">Where the campus earns its keep.</h2>
-      </Reveal>
-      {applications.map((item, index) => {
-        const mediaFirst = index % 2 === 1;
-        return (
-          <Reveal key={item.sector} className="col-span-full grid grid-cols-subgrid gap-y-6 py-[calc(var(--leading-base)*3)]">
-            <div className={`col-span-full lg:col-span-6 ${mediaFirst ? "lg:col-start-7 lg:row-start-1" : ""}`}>
+    <Surface id="applications" tone="ink">
+      <div className="grid-page pb-[calc(var(--leading-base)*10)]">
+        <div className="band items-stretch">
+          {rest.map((item, index) => (
+            <div key={item.sector} className="col-span-full md:col-span-4">
               <MediaFrame
                 label={`${item.sector} placeholder frame`}
-                caption={`${String(index + 3).padStart(2, "0")} / ${item.sector}`}
+                caption={`${String(index + 5).padStart(2, "0")} / ${item.sector}`}
                 wash={washes[index] ?? "slate"}
-                ratio="16 / 9"
+                ratio="16 / 10"
               />
+              <Card className="mt-4">
+                <Card.Header
+                  start={
+                    <div>
+                      <p className="type-code text-muted">{item.sector}</p>
+                      <h3 className={`${cardTitleClasses} mt-3`}>{item.title}</h3>
+                    </div>
+                  }
+                />
+                <Card.Body>
+                  <p className={cardBodyTextClasses}>{item.body}</p>
+                </Card.Body>
+              </Card>
             </div>
-            <div className={`col-span-full self-center lg:col-span-5 ${mediaFirst ? "lg:col-start-1 lg:row-start-1" : "lg:col-start-8"}`}>
-              <p className="type-heading-6 text-muted">{item.sector}</p>
-              <h3 className="type-heading-1 mt-3 text-fg">{item.title}</h3>
-              <p className="type-body mt-4 text-muted">{item.body}</p>
-            </div>
-          </Reveal>
-        );
-      })}
-    </PageSection>
+          ))}
+        </div>
+      </div>
+    </Surface>
   );
 }
