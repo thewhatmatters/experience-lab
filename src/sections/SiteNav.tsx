@@ -19,7 +19,9 @@ export function SiteNav() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-40 transition-[background-color,box-shadow] duration-medium ease-standard",
-        scrolled ? "bg-body/95 shadow-[0_1px_0_var(--color-border)]" : "bg-transparent",
+        scrolled
+          ? "bg-[var(--color-background-body)] shadow-[0_1px_0_var(--color-border)]"
+          : "bg-transparent",
       )}
     >
       <div className="grid-page" style={{ paddingBlock: 0 }}>

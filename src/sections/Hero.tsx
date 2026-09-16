@@ -19,7 +19,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="lab-bleed relative h-[120svh] overflow-hidden bg-[color-mix(in_srgb,var(--color-info)_28%,var(--color-background-muted))]"
+      className="lab-bleed relative h-svh overflow-hidden bg-[color-mix(in_srgb,var(--color-info)_28%,var(--color-background-muted))]"
     >
       <motion.div
         className="absolute inset-[-12%] flex items-center justify-center text-white"
