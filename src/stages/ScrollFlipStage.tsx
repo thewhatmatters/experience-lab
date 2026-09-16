@@ -42,7 +42,7 @@ export function ScrollFlipStage() {
     <section id="flip" ref={trackRef} className="col-span-full h-[400svh]">
       <div className="lab-bleed sticky top-0 h-svh overflow-hidden bg-body">
         <motion.div
-          className="pointer-events-none absolute top-[18%] left-[6vw] z-10 max-w-[26vw]"
+          className="pointer-events-none absolute top-[30%] left-[6vw] z-10 max-w-[26vw]"
           style={{ opacity: copyOpacity, visibility: copyVisibility }}
         >
           <p className="type-body text-fg">{mission.aside}</p>
@@ -77,7 +77,7 @@ function HoldOverlay() {
         <p className="type-code mt-2 text-white/80">{flipHold.pronunciation}</p>
       </div>
       <div className="absolute top-1/2 right-[6vw] max-w-md -translate-y-1/2 pl-8 text-right">
-        <p className="type-body text-white/90">{flipHold.definition}</p>
+        <p className="type-body text-white">{flipHold.definition}</p>
       </div>
     </div>
   );
