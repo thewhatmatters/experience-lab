@@ -22,15 +22,15 @@ export function ReactorScrub() {
     offset: ["start start", "end end"],
   });
 
-  const assemble = useTransform(scrollYProgress, (value) => scrub(value, 0, 0.82));
-  const roofY = useTransform(assemble, [0, 1], [-78, 0]);
-  const leftX = useTransform(assemble, [0, 1], [-96, 0]);
-  const rightX = useTransform(assemble, [0, 1], [96, 0]);
-  const plinthY = useTransform(assemble, [0, 1], [56, 0]);
-  const coreScale = useTransform(assemble, [0, 1], [0.52, 1]);
-  const vesselScale = useTransform(assemble, [0, 1], [0.86, 1]);
-  const collarScale = useTransform(assemble, [0, 1], [1.28, 1]);
-  const collarOpacity = useTransform(assemble, [0.15, 0.7], [0.15, 1]);
+  const assemble = useTransform(scrollYProgress, (value) => scrub(value, 0.06, 0.88));
+  const roofY = useTransform(assemble, [0, 1], [-118, 0]);
+  const leftX = useTransform(assemble, [0, 1], [-168, 0]);
+  const rightX = useTransform(assemble, [0, 1], [168, 0]);
+  const plinthY = useTransform(assemble, [0, 1], [84, 0]);
+  const coreScale = useTransform(assemble, [0, 1], [0.34, 1]);
+  const vesselScale = useTransform(assemble, [0, 1], [0.78, 1]);
+  const collarScale = useTransform(assemble, [0, 1], [1.42, 1]);
+  const collarOpacity = useTransform(assemble, [0.1, 0.65], [0.05, 1]);
 
   const [active, setActive] = useState(reduce ? capabilities.length - 1 : 0);
   useMotionValueEvent(scrollYProgress, "change", (value) => {

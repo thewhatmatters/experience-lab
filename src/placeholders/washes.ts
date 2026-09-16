@@ -7,7 +7,7 @@ export const washes = {
   field:
     "linear-gradient(118deg, color-mix(in srgb, var(--color-success) 36%, var(--color-background-muted)) 0%, color-mix(in srgb, var(--color-primary) 22%, var(--color-background-surface)) 46%, color-mix(in srgb, var(--color-success) 14%, var(--color-background-body)) 100%)",
   night:
-    "linear-gradient(168deg, color-mix(in srgb, var(--color-primary) 28%, #07090c) 0%, color-mix(in srgb, var(--color-warning) 18%, #12151c) 42%, color-mix(in srgb, var(--color-info) 16%, #0b0d12) 100%)",
+    "linear-gradient(158deg, color-mix(in srgb, var(--color-warning) 42%, #1c140a) 0%, color-mix(in srgb, var(--color-primary) 36%, #141820) 38%, color-mix(in srgb, var(--color-info) 28%, #0a0c10) 72%, #07080b 100%)",
 } as const;
 
 export type MediaWash = keyof typeof washes;

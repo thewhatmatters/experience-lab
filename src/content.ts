@@ -28,7 +28,7 @@ export const mission = {
 export const flipHold = {
   name: "Ashlar",
   pronunciation: "/ ˈash-lər /",
-  definition: "Dressed stone laid with a tight joint — heat, power, and hydrogen meeting as one elevation.",
+  definition: "Dressed stone laid with a tight joint — heat, power, and hydrogen as one elevation.",
 };
 
 export const systems = {

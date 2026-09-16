@@ -27,10 +27,12 @@ export function ScrollFlipStage() {
   const insetX = useTransform(expand, [0, 1], ["7vw", "0vw"]);
   const insetBottom = useTransform(expand, [0, 1], ["8%", "0%"]);
   const radius = useTransform(expand, [0, 1], [4, 0]);
+  const frameBorder = useTransform(expand, [0, 0.85], ["rgba(255,255,255,0.16)", "rgba(255,255,255,0)"]);
 
-  const copyOpacity = useTransform(scrollYProgress, [0, 0.22], [1, 0]);
-  const copyY = useTransform(scrollYProgress, [0, 0.22], [0, -32]);
-  const overlayOpacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 1]);
+  const copyOpacity = useTransform(scrollYProgress, [0, 0.16], [1, 0]);
+  const copyY = useTransform(scrollYProgress, [0, 0.16], [0, -28]);
+  const copyVisibility = useTransform(scrollYProgress, (value) => (value > 0.16 ? "hidden" : "visible"));
+  const overlayOpacity = useTransform(scrollYProgress, [0.2, 0.34], [0, 1]);
 
   if (reduce) {
     return (
@@ -48,13 +50,14 @@ export function ScrollFlipStage() {
     <section id="mission" ref={trackRef} className="col-span-full h-[400svh]">
       <div className="lab-bleed sticky top-0 h-svh overflow-hidden bg-body">
         <motion.div
-          className="absolute overflow-hidden will-change-[inset,border-radius]"
+          className="absolute overflow-hidden border will-change-[inset,border-radius]"
           style={{
             top: insetTop,
             left: insetX,
             right: insetX,
             bottom: insetBottom,
             borderRadius: radius,
+            borderColor: frameBorder,
           }}
         >
           <LabFilm label="Placeholder campus night film" wash="night" />
@@ -63,7 +66,7 @@ export function ScrollFlipStage() {
           </motion.div>
         </motion.div>
 
-        <motion.div className="absolute inset-0 z-10" style={{ opacity: copyOpacity, y: copyY }}>
+        <motion.div className="absolute inset-0 z-10" style={{ opacity: copyOpacity, y: copyY, visibility: copyVisibility }}>
           <MissionCopy overlay />
         </motion.div>
       </div>
