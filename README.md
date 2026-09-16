@@ -44,7 +44,7 @@ Page layout uses WMDS **`grid-page` + `band`**. Components are used via props (`
 
 **Real (WMDS / stack)**
 
-- Theme, type tokens (`type-*`), grid spine, light paper (default) with `data-theme="dark"` on ink bands
+- Theme, type tokens (`type-*`), grid spine, light paper (default) with `data-theme="dark"` on ink bands. Local `--lab-*` hexes match the reference sky / duck-egg / ink.
 - `Button`, `Badge`, `Card`, `Stat`, `Avatar`, `TextLink`, `GridOverlay`
 - `motionTransitionProp` for duration/easing
 - Geist variable fonts
@@ -76,11 +76,11 @@ If Design wants these in WMDS, promote the local placeholders — do not keep gr
 
 ## Motion
 
-Header: full-bleed hero with parallax between the placeholder vessel and the display title.
+Header: full-bleed hero on the reference sky gradient (`#628ad1` → `#fff0e2`). Display type splits around a placeholder vessel (`Powering` / `the` … `world`); vessel, title, and lede parallax at different rates.
 
-Primary: `ScrollFlipStage` starts as a **rounded inset in the white mission band**, scrubs to the viewport, holds full-bleed with a center line + name/definition overlays, then releases as a 100svh in-flow block onto the paper technology section. Secondary: `ReactorScrub` pins a plant graphic on the ice systems band; labels step with progress.
+Primary: `ScrollFlipStage` starts as a **small rounded inset in the white mission band** (left aside + right 16:9-ish film), scrubs to the viewport, holds full-bleed with a center line + name/definition overlays, then releases as a 100svh in-flow block onto the duck-egg technology section. Secondary: `ReactorScrub` pins a plant graphic on the same duck-egg systems band; labels step with progress.
 
-Surfaces stay close to the reference: paper (white), ice (muted), ink (dark theme bands).
+Surfaces follow the reference bands: paper (white mission / service / workforce), duck-egg `#f1f5f8` (technology + systems + team, consecutive), ink `#1b1b1b` (heat + sectors + connect, consecutive).
 
 Both honor `prefers-reduced-motion` by jumping to end states (no morph, no scrub track). CSS wash animation is disabled under the same query.
 

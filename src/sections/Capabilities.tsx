@@ -11,14 +11,16 @@ export function Capabilities() {
     <Surface id="capabilities" tone="ink">
       <div className="grid-page py-[calc(var(--leading-base)*8)]">
         <div className="band">
-          <p className="type-code col-span-full text-muted">0 °C — 1 200 °C</p>
+          <h2 className="type-display-2 col-span-full text-fg">{heat.title}</h2>
+          <p className="type-code col-span-full mt-10 text-muted">{heat.scale}</p>
           <div
             className="col-span-full mt-4 h-2 overflow-hidden bg-muted-surface"
             role="img"
-            aria-label="Placeholder temperature range, campus marked near 900 °C"
+            aria-label={`Placeholder temperature range, campus marked near ${heat.mark}`}
           >
             <div className="h-full w-[75%] bg-info" />
           </div>
+          <p className="type-code col-span-full mt-2 text-right text-muted">{heat.mark}</p>
           <p className="type-heading-6 col-span-full mt-12 text-muted lg:col-span-4">{heat.eyebrow}</p>
           <p className="type-heading-2 col-span-full mt-12 text-fg lg:col-span-7 lg:col-start-6">{heat.body}</p>
         </div>

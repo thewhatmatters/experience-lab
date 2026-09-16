@@ -15,8 +15,8 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  display: ["Powering", "the plot"],
-  lede: "Heat and electricity to power a world of industrial applications.",
+  display: ["Powering", "the", "world"],
+  lede: "Clean heat and electricity to power a world of industrial applications.",
 };
 
 export const mission = {
@@ -77,6 +77,8 @@ export const heat = {
   title: "Unmatched heat capabilities",
   eyebrow: "Modernizing plant technology unlocking high-temperature systems",
   body: "Together, these capabilities unlock energy solutions across oil and gas, metals, aviation, data halls, e-fuels, and other high-value uses.",
+  scale: "0 °C — 1 200 °C",
+  mark: "900 °C",
 };
 
 export const applications = [
@@ -106,6 +108,16 @@ export const applications = [
     body: "Halls take 24/7 electricity; residual heat goes to neighboring process or district loops.",
   },
   {
+    sector: "Mining",
+    title: "Heat and power for remote mines",
+    body: "A compact campus beside the pit: process heat for refining and overnight power without a second plant.",
+  },
+  {
+    sector: "Communities",
+    title: "Campus heat for neighboring towns",
+    body: "Residual heat and steady power support district loops and e-fuel trains next to the fence.",
+  },
+  {
     sector: "Water",
     title: "Desalination without a second plant",
     body: "Steady heat and power run large-scale desalination beside industrial users that already need both.",
@@ -127,8 +139,9 @@ export const team = [
   { name: "Jonas Berg", role: "Field operations" },
 ] as const;
 
-export const teamCallout = {
-  title: "Learn more about the people behind Ashlar",
+export const teamIntro = {
+  title: "Meet the team behind Ashlar",
+  body: "Campus, plant, and offtake leads — people who plan the elevation as one piece of work.",
   cta: "Meet the full team",
 };
 

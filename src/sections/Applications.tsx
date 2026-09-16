@@ -3,7 +3,7 @@ import { applications } from "../content";
 import { MediaFrame, type MediaWash } from "../placeholders/MediaFrame";
 import { Surface } from "../placeholders/Surface";
 
-const washes: MediaWash[] = ["ember", "field", "slate", "tide"];
+const washes: MediaWash[] = ["ember", "field", "slate", "tide", "night", "ember"];
 
 export function Applications() {
   const rest = applications.slice(2);

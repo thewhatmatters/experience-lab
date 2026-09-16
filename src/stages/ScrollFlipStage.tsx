@@ -17,15 +17,15 @@ export function ScrollFlipStage() {
   });
 
   const expand = useTransform(scrollYProgress, (value) => scrub(value, 0, 0.36));
-  const insetTop = useTransform(expand, [0, 1], ["18%", "0%"]);
-  const insetLeft = useTransform(expand, [0, 1], ["36vw", "0vw"]);
-  const insetRight = useTransform(expand, [0, 1], ["6vw", "0vw"]);
-  const insetBottom = useTransform(expand, [0, 1], ["10%", "0%"]);
-  const radius = useTransform(expand, [0, 1], [16, 0]);
+  const insetTop = useTransform(expand, [0, 1], ["30%", "0%"]);
+  const insetLeft = useTransform(expand, [0, 1], ["42vw", "0vw"]);
+  const insetRight = useTransform(expand, [0, 1], ["8vw", "0vw"]);
+  const insetBottom = useTransform(expand, [0, 1], ["32%", "0%"]);
+  const radius = useTransform(expand, [0, 1], [6, 0]);
 
   const copyOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const copyVisibility = useTransform(scrollYProgress, (value) => (value > 0.2 ? "hidden" : "visible"));
-  const overlayOpacity = useTransform(scrollYProgress, [0.28, 0.4], [0, 1]);
+  const overlayOpacity = useTransform(scrollYProgress, [0.22, 0.48], [0, 1]);
 
   if (reduce) {
     return (

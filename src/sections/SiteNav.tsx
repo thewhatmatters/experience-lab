@@ -20,7 +20,7 @@ export function SiteNav() {
       className={cn(
         "fixed inset-x-0 top-0 z-40 transition-[background-color,box-shadow] duration-medium ease-standard",
         scrolled
-          ? "bg-[var(--color-background-body)] shadow-[0_1px_0_var(--color-border)]"
+          ? "bg-[var(--lab-sky)] shadow-[0_1px_0_color-mix(in_srgb,var(--lab-sky-start)_22%,transparent)]"
           : "bg-transparent",
       )}
     >

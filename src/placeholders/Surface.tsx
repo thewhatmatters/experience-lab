@@ -18,9 +18,9 @@ export function Surface({
   const theme = tone === "ink" ? "dark" : undefined;
   const toneClass =
     tone === "ink"
-      ? "bg-body text-fg"
+      ? "bg-[var(--lab-ink)] text-fg"
       : tone === "ice"
-        ? "bg-muted-surface text-fg"
+        ? "bg-[var(--lab-duck)] text-fg"
         : "bg-body text-fg";
 
   return (

@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { hero } from "../content";
 import { VesselMark } from "../placeholders/VesselMark";
 
-/** LOCAL PLACEHOLDER — full-bleed header with parallax vessel + display type. */
+/** LOCAL PLACEHOLDER — full-bleed header: split title, vessel between the words, parallax. */
 export function Hero() {
   const reduce = Boolean(useReducedMotion());
   const ref = useRef<HTMLElement>(null);
@@ -12,46 +12,51 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const vesselY = useTransform(scrollYProgress, [0, 1], [0, 140]);
-  const titleY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const ledeY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const vesselY = useTransform(scrollYProgress, [0, 1], [0, 220]);
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const ledeY = useTransform(scrollYProgress, [0, 1], [0, 36]);
 
   return (
     <section
       ref={ref}
-      className="lab-bleed relative h-svh overflow-hidden bg-[color-mix(in_srgb,var(--color-info)_28%,var(--color-background-muted))]"
+      className="lab-bleed relative h-svh min-h-[54rem] overflow-hidden text-white"
+      style={{ backgroundImage: "linear-gradient(var(--lab-sky-start), var(--lab-sky-end))" }}
     >
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: "linear-gradient(180deg, var(--lab-sky-overlay) 50%, transparent)",
+          opacity: 0.72,
+        }}
+      />
+
       <motion.div
-        className="absolute inset-[-12%] flex items-center justify-center text-white"
+        className="absolute inset-[-8%] z-[1] flex items-center justify-center text-white"
         style={{ y: reduce ? 0 : vesselY }}
       >
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, color-mix(in srgb, var(--color-info) 42%, #d7e6f4) 0%, color-mix(in srgb, var(--color-background-muted) 40%, #f3efe8) 100%)",
-          }}
-        />
-        <VesselMark className="relative h-[min(72vh,36rem)] w-auto text-white" />
+        <VesselMark className="relative h-[min(82vh,44rem)] w-auto text-white" />
       </motion.div>
 
       <motion.div
-        className="absolute inset-0 z-10 flex items-center justify-center px-[6vw]"
+        className="absolute inset-x-[6vw] top-[18%] z-10"
         style={{ y: reduce ? 0 : titleY }}
       >
-        <h1 className="lab-hero text-center text-white">
-          {hero.display[0]}
-          <br />
-          {hero.display[1]}
+        <h1 className="lab-hero text-white">
+          <span className="block">{hero.display[0]}</span>
+          <span className="mt-[0.04em] flex items-baseline justify-between gap-8">
+            <span>{hero.display[1]}</span>
+            <span>{hero.display[2]}</span>
+          </span>
         </h1>
       </motion.div>
 
-      <motion.p
-        className="type-body absolute bottom-[calc(var(--leading-base)*6)] left-[6vw] z-10 max-w-xs text-white"
+      <motion.div
+        className="absolute bottom-[calc(var(--leading-base)*5)] left-[6vw] z-10 flex max-w-xs gap-6"
         style={{ y: reduce ? 0 : ledeY }}
       >
-        {hero.lede}
-      </motion.p>
+        <span className="mt-1 h-28 w-px shrink-0 bg-[var(--lab-lede)]/40" aria-hidden="true" />
+        <p className="type-body text-[var(--lab-lede)]">{hero.lede}</p>
+      </motion.div>
     </section>
   );
 }

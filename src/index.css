@@ -29,6 +29,20 @@ html {
 }
 
 /*
+ * LOCAL PLACEHOLDER — reference homepage surfaces (not WMDS tokens).
+ * Hero: #628ad1 → #fff0e2. Duck-egg #f1f5f8. Ink #1b1b1b. Sky #d3e7ff.
+ */
+:root {
+  --lab-sky-start: #628ad1;
+  --lab-sky-end: #fff0e2;
+  --lab-sky-overlay: #244c8a;
+  --lab-sky: #d3e7ff;
+  --lab-duck: #f1f5f8;
+  --lab-ink: #1b1b1b;
+  --lab-lede: #5e5c58;
+}
+
+/*
  * LOCAL PLACEHOLDER — marketing display scale.
  * WMDS type-display-1 tops out at 2.625rem; a long-scroll hero needs larger type.
  */
@@ -46,9 +60,9 @@ html {
  */
 @utility lab-hero {
   font-family: var(--font-family-heading);
-  font-size: clamp(4.5rem, 14vw, 10.5rem);
-  font-weight: 400;
-  line-height: 0.9;
+  font-size: clamp(4.25rem, 13vw, 12rem);
+  font-weight: 300;
+  line-height: 0.88;
   letter-spacing: -0.045em;
 }
 

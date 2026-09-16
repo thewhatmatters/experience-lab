@@ -7,7 +7,7 @@ import { Surface } from "../placeholders/Surface";
 
 export function Technology() {
   return (
-    <Surface id="technology" tone="paper">
+    <Surface id="technology" tone="ice">
       <div className="grid-page py-[calc(var(--leading-base)*10)]">
         <div className="band items-start">
           <h2 className="type-display-2 col-span-full text-fg lg:col-span-5">{technology.title}</h2>
