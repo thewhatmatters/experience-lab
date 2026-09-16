@@ -1,6 +1,7 @@
 import { Badge, Button } from "@whatmatters/wmds";
 import { ArrowUpRight } from "lucide-react";
 import { service } from "../content";
+import { scrollToSection } from "../lib/scrollToSection";
 import { MediaFrame } from "../placeholders/MediaFrame";
 import { PageSection } from "../placeholders/PageSection";
 import { Reveal } from "../placeholders/Reveal";
@@ -27,7 +28,7 @@ export function Service() {
           <Button
             role="primary"
             icon={<ArrowUpRight strokeWidth={2} />}
-            onClick={() => document.querySelector("#connect")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => scrollToSection("connect")}
           >
             Talk to offtake
           </Button>

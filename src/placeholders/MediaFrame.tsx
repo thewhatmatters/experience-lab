@@ -1,13 +1,13 @@
-import { cn } from "@whatmatters/wmds";
+import { backgroundPatternDotGridClasses, cn } from "@whatmatters/wmds";
 
 const washes = {
   slate:
-    "linear-gradient(128deg, color-mix(in srgb, var(--color-background-muted) 70%, var(--color-primary)) 0%, var(--color-background-surface) 48%, color-mix(in srgb, var(--color-info) 35%, var(--color-background-body)) 100%)",
+    "linear-gradient(128deg, color-mix(in srgb, var(--color-primary) 42%, var(--color-background-muted)) 0%, color-mix(in srgb, var(--color-info) 28%, var(--color-background-surface)) 48%, color-mix(in srgb, var(--color-primary) 18%, var(--color-background-body)) 100%)",
   ember:
-    "linear-gradient(150deg, color-mix(in srgb, var(--color-warning) 28%, var(--color-background-body)) 0%, var(--color-background-muted) 42%, color-mix(in srgb, var(--color-primary) 40%, black) 100%)",
-  tide: "linear-gradient(160deg, color-mix(in srgb, var(--color-info) 32%, var(--color-background-body)) 0%, var(--color-background-surface) 50%, color-mix(in srgb, var(--color-accent) 22%, var(--color-background-muted)) 100%)",
+    "linear-gradient(150deg, color-mix(in srgb, var(--color-warning) 46%, var(--color-background-muted)) 0%, color-mix(in srgb, var(--color-primary) 30%, var(--color-background-surface)) 46%, color-mix(in srgb, var(--color-warning) 16%, var(--color-background-body)) 100%)",
+  tide: "linear-gradient(160deg, color-mix(in srgb, var(--color-info) 48%, var(--color-background-muted)) 0%, color-mix(in srgb, var(--color-accent) 24%, var(--color-background-surface)) 50%, color-mix(in srgb, var(--color-info) 18%, var(--color-background-body)) 100%)",
   field:
-    "linear-gradient(118deg, color-mix(in srgb, var(--color-success) 18%, var(--color-background-muted)) 0%, var(--color-background-body) 46%, color-mix(in srgb, var(--color-primary) 24%, var(--color-background-surface)) 100%)",
+    "linear-gradient(118deg, color-mix(in srgb, var(--color-success) 36%, var(--color-background-muted)) 0%, color-mix(in srgb, var(--color-primary) 22%, var(--color-background-surface)) 46%, color-mix(in srgb, var(--color-success) 14%, var(--color-background-body)) 100%)",
 } as const;
 
 export type MediaWash = keyof typeof washes;
@@ -58,8 +58,12 @@ export function MediaFrame({
             aria-label={label}
           />
         )}
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_srgb,var(--color-background-body)_35%,transparent),transparent_42%)]" />
-        <p className="type-code absolute right-4 bottom-3 text-fg/80">{caption ?? "Placeholder media"}</p>
+        <div
+          className={cn(backgroundPatternDotGridClasses, "pointer-events-none absolute inset-0")}
+          style={{ backgroundColor: "transparent" }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_srgb,var(--color-background-body)_28%,transparent),transparent_46%)]" />
+        <p className="type-code absolute right-4 bottom-3 text-fg">{caption ?? "Placeholder media"}</p>
       </div>
     </figure>
   );

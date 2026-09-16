@@ -1,6 +1,7 @@
 import { Button, TextLink } from "@whatmatters/wmds";
 import { ArrowUpRight } from "lucide-react";
 import { nav, product } from "../content";
+import { scrollToSection } from "../lib/scrollToSection";
 
 /** LOCAL PLACEHOLDER — sticky marketing nav. WMDS PageHeader is app chrome, not a site header. */
 export function SiteNav() {
@@ -23,7 +24,7 @@ export function SiteNav() {
               role="primary"
               size="sm"
               icon={<ArrowUpRight strokeWidth={2} />}
-              onClick={() => document.querySelector("#connect")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => scrollToSection("connect")}
             >
               Connect
             </Button>
