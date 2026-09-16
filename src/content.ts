@@ -11,6 +11,7 @@ export const product = {
 export const nav = [
   { href: "#mission", label: "Mission" },
   { href: "#technology", label: "Campus" },
+  { href: "#systems", label: "Plant" },
   { href: "#capabilities", label: "Capabilities" },
   { href: "#applications", label: "Sectors" },
   { href: "#connect", label: "Connect" },
@@ -22,6 +23,18 @@ export const mission = {
   body: "Dressed stone, each face cut so the next block can bear load without a gap. We named the campus after that joint: heat, power, and hydrogen planned as one elevation — not three projects bolted to a fence line.",
   aside:
     "This page is a WhatMatters capability lab. The product is fictional. Media are placeholders. The brief is rhythm, type, grid, and restrained motion — not a clone of any live industrial site.",
+};
+
+export const flipHold = {
+  name: "Ashlar",
+  pronunciation: "/ ˈash-lər /",
+  definition: "Dressed stone laid with a tight joint — heat, power, and hydrogen meeting as one elevation.",
+};
+
+export const systems = {
+  eyebrow: "Intelligent plant",
+  title: "Parts find their joint.",
+  body: "A digital twin rehearses the elevation before steel does. Scroll the stack: separated kit becomes one campus, and the offtake that is live steps forward.",
 };
 
 export const technology = {

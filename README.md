@@ -6,6 +6,8 @@ It studies the *experience language* of premium industrial sites (long narrative
 
 The demo product is **Ashlar** — a fictional industrial clean-energy campus.
 
+Motion behavior is specified in [`MOTION.md`](./MOTION.md). The primary beat is a **ScrollFlip** (inset → full-bleed pin → in-flow release). A pinned **ReactorScrub** assembles plant parts against scroll. Do **not** add GSAP, Lenis, or Webflow.
+
 ## Run
 
 ```bash
@@ -49,9 +51,10 @@ Page layout uses WMDS **`grid-page` + `band`**. Components are used via props (`
 
 **Placeholder (local, marked in source)**
 
-- All photography / film — gradient `MediaFrame` blocks (optional muted `src` loop later)
+- All photography / film — gradient `LabFilm` / `MediaFrame` blocks (optional muted `src` loop later). Playback is continuous, never frame-scrubbed.
 - Team faces — `Avatar` initials, no portraits
 - Ashlar name, copy, figures, and people — invented for the lab
+- `ScrollFlipStage`, `ReactorScrub`, `LabFilm` — local motion modules, not WMDS exports
 - `Reveal`, `MediaFrame`, `lab-display`, `lab-bleed`, sticky `SiteNav` — local page helpers, not WMDS exports
 
 ## WMDS gaps (for Design)
@@ -59,18 +62,25 @@ Page layout uses WMDS **`grid-page` + `band`**. Components are used via props (`
 Flagged because they blocked a credible marketing page without forking atoms:
 
 1. **Marketing display scale** — `type-display-1` tops out at 2.625rem. Hero type uses local `lab-display` (`clamp` up to ~5.25rem).
-2. **Media / figure organism** — no framed video, poster, or architectural media band. Local `MediaFrame`.
-3. **Scroll-reveal pattern** — `motionTransitionProp` exists; there is no whileInView / section-enter recipe. Local `Reveal`.
-4. **Marketing nav / footer** — `PageHeader` is app chrome. Sticky site nav and connect footer are local layout.
-5. **Full-bleed breakout** — grid spine is an 80rem app page. Local `lab-bleed` for cinema-width media.
-6. **Editorial sector row** — no marketing split (media + story) pattern. Applications are page layout + `Reveal`.
-7. **Capability marketing card** — `Card` works, but it is an app surface, not a campaign tile. Used as-is.
+2. **Media / figure organism** — no framed video, poster, or architectural media band. Local `MediaFrame` / `LabFilm`.
+3. **Scroll-flip / pin organism** — no origin→target morph + chapter pin + in-flow release. Local `ScrollFlipStage` (Motion `useScroll` / `useTransform`, not GSAP Flip).
+4. **Scrubbed assembly stage** — no scroll-driven exploded→assembled graphic with stepping labels. Local `ReactorScrub`.
+5. **Marketing nav / footer** — `PageHeader` is app chrome. Sticky site nav and connect footer are local layout.
+6. **Full-bleed breakout** — grid spine is an 80rem app page. Local `lab-bleed` for cinema-width media.
+7. **Editorial sector row** — no marketing split (media + story) pattern. Applications are page layout.
+8. **Capability marketing card** — `Card` works, but it is an app surface, not a campaign tile. Used as-is.
+
+`Reveal` (`whileInView` fades) remains for secondary sections only. It is **not** the hero motion story.
 
 If Design wants these in WMDS, promote the local placeholders — do not keep growing them here.
 
 ## Motion
 
-Reveals use `motion/react` `whileInView` with WMDS `motionTransitionProp("medium")` (Astryx spatial change, not flash). `prefers-reduced-motion` zeros duration and skips offset. CSS wash animation is disabled under the same query.
+Primary: `ScrollFlipStage` scrubs an inset film to the viewport, holds full-bleed with a center line + name/definition overlays, then releases as a 100svh in-flow block. Secondary: `ReactorScrub` pins a plant graphic and drives part transforms from separated → assembled; capability labels step with progress.
+
+Both honor `prefers-reduced-motion` by jumping to end states (no morph, no scrub track). CSS wash animation is disabled under the same query.
+
+`Reveal` still uses `motion/react` `whileInView` with WMDS `motionTransitionProp("medium")` on later editorial bands only.
 
 ## Deploy
 

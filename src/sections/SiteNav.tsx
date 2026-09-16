@@ -13,7 +13,7 @@ export function SiteNav() {
             {product.name}
           </a>
           <nav className="col-span-2 hidden items-center justify-end gap-4 md:flex lg:col-span-6" aria-label="Sections">
-            {nav.slice(0, 4).map((item) => (
+            {nav.slice(0, 5).map((item) => (
               <TextLink key={item.href} href={item.href}>
                 {item.label}
               </TextLink>
