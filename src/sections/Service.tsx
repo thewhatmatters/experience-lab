@@ -1,39 +1,38 @@
-import { Badge, Button } from "@whatmatters/wmds";
+import { Button } from "@whatmatters/wmds";
 import { ArrowUpRight } from "lucide-react";
 import { service } from "../content";
 import { scrollToSection } from "../lib/scrollToSection";
 import { MediaFrame } from "../placeholders/MediaFrame";
-import { PageSection } from "../placeholders/PageSection";
-import { Reveal } from "../placeholders/Reveal";
+import { Surface } from "../placeholders/Surface";
 
 export function Service() {
   return (
-    <PageSection id="service">
-      <Reveal className="col-span-full">
-        <MediaFrame
-          label="Placeholder service band"
-          caption="09 / Operations"
-          wash="field"
-          ratio="21 / 9"
-          className="lab-bleed"
-        />
-      </Reveal>
-      <Reveal className="col-span-full mt-10 lg:col-span-7">
-        <Badge variant="info" emphasis="muted">
-          {service.eyebrow}
-        </Badge>
-        <h2 className="type-display-2 mt-4 text-fg">{service.title}</h2>
-        <p className="type-body mt-6 max-w-2xl text-muted">{service.body}</p>
-        <div className="mt-8">
-          <Button
-            role="primary"
-            icon={<ArrowUpRight strokeWidth={2} />}
-            onClick={() => scrollToSection("connect")}
-          >
-            Talk to offtake
-          </Button>
+    <Surface id="service" tone="paper">
+      <div className="grid-page py-[calc(var(--leading-base)*10)]">
+        <div className="band items-center">
+          <div className="col-span-full lg:col-span-4">
+            <h2 className="type-display-2 text-fg">{service.title}</h2>
+            <p className="type-body mt-8 max-w-md text-muted">{service.body}</p>
+            <div className="mt-8">
+              <Button
+                role="primary"
+                icon={<ArrowUpRight strokeWidth={2} />}
+                onClick={() => scrollToSection("connect")}
+              >
+                {service.cta}
+              </Button>
+            </div>
+          </div>
+          <div className="col-span-full lg:col-span-8">
+            <MediaFrame
+              label="Placeholder energy-as-a-service network"
+              caption="07 / Network"
+              wash="tide"
+              ratio="16 / 10"
+            />
+          </div>
         </div>
-      </Reveal>
-    </PageSection>
+      </div>
+    </Surface>
   );
 }
